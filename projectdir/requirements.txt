@@ -1,0 +1,14 @@
+# core requirements
+
+# extras for development
+black==18.9b0
+pytest-benchmark==3.2.2
+pytest==4.1.1
+pytest-cov==2.6.1
+coverage
+pylint==2.1.1
+flake8==3.5.0
+mypy==0.620
+towncrier
+sphinx
+sphinx-autodoc-typehints
