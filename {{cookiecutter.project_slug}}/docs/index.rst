@@ -1,6 +1,6 @@
-.. _FILL_ME_IN_ documentation master file
+.. {{cookiecutter.project_slug}} documentation master file
 
-Welcome to _FILL_ME_IN_'s documentation!
+Welcome to {{cookiecutter.project_slug}}'s documentation!
 ================================================
 
 .. toctree::

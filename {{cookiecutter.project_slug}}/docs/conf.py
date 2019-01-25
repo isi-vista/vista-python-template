@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-# vistautils documentation build configuration file, created by
+# {{cookiecutter.project_slug}} documentation build configuration file, created by
 # sphinx-quickstart on Fri Oct 12 16:20:00 2018.
 #
 # This file is execfile()d with the current directory set to its
@@ -50,9 +50,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = 'vistautils'
-copyright = '2018, Information Sciences Institute'
-author = 'Ryan Gabbard and Constantine Lignos'
+project = '{{cookiecutter.project_slug}}'
+copyright = '2019, Information Sciences Institute'
+author = '{{cookiecutter.full_name}}'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -122,7 +122,7 @@ html_sidebars = {
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'vistautilsdoc'
+htmlhelp_basename = '{{cookiecutter.project_slug}}doc'
 
 
 # -- Options for LaTeX output ---------------------------------------------
@@ -149,8 +149,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'vistautils.tex', 'vistautils Documentation',
-     'Ryan Gabbard and Constantine Lignos', 'manual'),
+    (master_doc, '{{cookiecutter.project_slug}}.tex', '{{cookiecutter.project_slug}} Documentation',
+     '{{cookiecutter.full_name}}', 'manual'),
 ]
 
 
@@ -159,7 +159,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'vistautils', 'vistautils Documentation',
+    (master_doc, '{{cookiecutter.project_slug}}', '{{cookiecutter.project_slug}} Documentation',
      [author], 1)
 ]
 
@@ -170,8 +170,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'vistautils', 'vistautils Documentation',
-     author, 'vistautils', 'One line description of project.',
+    (master_doc, '{{cookiecutter.project_slug}}', '{{cookiecutter.project_slug}} Documentation',
+     author, '{{cookiecutter.project_slug}}', 'One line description of project.',
      'Miscellaneous'),
 ]
 

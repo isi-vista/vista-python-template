@@ -5,16 +5,16 @@ from setuptools import find_packages
 
 from os.path import abspath, dirname, join
 
-with open(join(dirname(abspath(__file__)), 'FILL_ME_IN', 'version.py')) as version_file:
+with open(join(dirname(abspath(__file__)), '{{cookiecutter.project_slug}}', 'version.py')) as version_file:
     exec(compile(version_file.read(), "version.py", 'exec'))
 
-setup(name='vistautils',
+setup(name='{{cookiecutter.project_slug}}',
       version=version,
-      author='FILL_ME_IN',
-      author_email='FILL_ME_IN',
-      description="FILL_ME_IN",
-      url='FILL_ME_IN',
-      packages=['FILL_ME_IN'],
+      author='{{cookiecutter.full_name}}',
+      author_email='{{cookiecutter.email}}',
+      description="{{cookiecutter.project_short_description}}",
+      url='{{cookiecutter.github_url}}',
+      packages=[],
       # 3.6 and up, but not Python 4
       python_requires='~=3.6',
       install_requires=[

@@ -5,8 +5,7 @@ default:
 PYTHON=python3
 
 SHELL=bash
-PACKAGE_NAME=FILL_ME_IN
-SOURCE_DIR_NAME=$(PACKAGE_NAME)
+SOURCE_DIR_NAME={{cookiecutter.project_slug}}
 
 PYLINT:=pylint $(SOURCE_DIR_NAME) tests benchmarks
 

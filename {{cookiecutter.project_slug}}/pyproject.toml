@@ -1,7 +1,7 @@
 [tool.towncrier]
-    package="FILL_ME_IN"
+    package="{{cookiecutter.project_slug}}"
     filename="CHANGELOG.md"
-    issue_format = "`#{issue} <https://github.com/FILL_ME_IN/issues/{issue}>`_"
+    issue_format = "`#{issue} <{{cookiecutter.github_url}}/issues/{issue}>`_"
 
     [[tool.towncrier.type]]
         directory = "breaking"
