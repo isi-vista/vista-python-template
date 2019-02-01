@@ -1,1 +1,1 @@
-from {{cookiecutter.project_slug}}_.version import version as __version__
+from {{cookiecutter.project_slug}}.version import version as __version__
