@@ -1,0 +1,11 @@
+language: python
+python:
+    - "3.6"
+install: pip install -r requirements.txt
+
+# A custom script step, name value is used in the UI
+# and the code value contains the command that get executed
+script:
+    - echo "python version $(python --version) running"
+    - echo "pip version $(pip --version) running"
+    - make check test
