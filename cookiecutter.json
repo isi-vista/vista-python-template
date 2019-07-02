@@ -3,6 +3,7 @@
     "email": "Your address email (eq. you@example.com)",
     "github_username": "Your github username",
     "github_url": "https://github.com/yourorg/yourproject",
+    "github_project_name": "yourorg/yourproject",
     "project_name": "Name of the project",
     "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
     "project_short_description": "A short description of the project",
