@@ -3,10 +3,10 @@
 * TODO: Add codecov token to `.travis.yml`
 
 <!-- 
-[![Build status](https://ci.appveyor.com/api/projects/status/3jhdnwreqoni1492/branch/master?svg=true)](https://ci.appveyor.com/project/{{github_project_name}}/branch/master) 
+[![Build status](https://ci.appveyor.com/api/projects/status/3jhdnwreqoni1492/branch/master?svg=true)](https://ci.appveyor.com/project/{{cookiecutter.github_project_name}}/branch/master) 
 -->
-[![Build status](https://travis-ci.com/{{github_project_name}}.svg?branch=master)](https://travis-ci.com/{{github_project_name}}?branch=master)
-[![codecov](https://codecov.io/gh/{{github_project_name}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{github_project_name}})
+[![Build status](https://travis-ci.com/{{cookiecutter.github_project_name}}.svg?branch=master)](https://travis-ci.com/{{cookiecutter.github_project_name}}?branch=master)
+[![codecov](https://codecov.io/gh/{{cookiecutter.github_project_name}}/branch/master/graph/badge.svg)](https://codecov.io/gh/{{cookiecutter.github_project_name}})
 
 # Documentation
 
