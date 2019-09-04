@@ -33,7 +33,7 @@ test:
 	pytest tests
 
 coverage:
-	pytest --cov tests
+	pytest --cov={{cookiecutter.project_slug}} tests
 
 lint:
 	$(PYLINT)
