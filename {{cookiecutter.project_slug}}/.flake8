@@ -15,4 +15,4 @@ ignore =
     E131
     # flake8's idea of spacing around ':' differs from black's
     E203
-max-line-length = 100
+max-line-length = 200
