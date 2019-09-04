@@ -16,3 +16,6 @@ The docs will be under `docs/_build/html`
 # Contributing
 
 Run `make precommit` before commiting.  Eventually this will be automated.
+
+If you are using PyCharm, please set your docstring format to "Google" and your unit test runner to "PyTest"
+in `Preferences | Tools | Python Integrated Tools`.
