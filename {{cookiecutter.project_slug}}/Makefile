@@ -1,13 +1,7 @@
 default:
 	@echo "an explicit target is required"
 
-# easier to test python2 vs. python3
-PYTHON=python3
-
-SHELL=bash
 SOURCE_DIR_NAME={{cookiecutter.project_slug}}
-
-PYLINT:=pylint $(SOURCE_DIR_NAME) tests benchmarks
 
 MYPY:=mypy $(MYPY_ARGS) $(SOURCE_DIR_NAME) tests benchmarks
 
@@ -23,28 +17,25 @@ MYPY:=mypy $(MYPY_ARGS) $(SOURCE_DIR_NAME) tests benchmarks
 #
 # we tee the output to a file and test if it is empty so that we can return an error exit code
 # if there are errors (for CI) while still displaying them to the user
-FILTERED_MYPY:=$(MYPY) | perl -ne 'print if !/(Too many arguments|Signature of "__getitem__"|Only concrete class|Unexpected keyword argument|mypy\/typeshed\/stdlib\/3\/builtins.pyi:39: note: "\w+" defined here|Module( '\''\w+'\'')? has no attribute|has no attribute "validator"|has no attribute "default"|SelfType" has no attribute)/' | tee ./.mypy_tmp && test ! -s ./.mypy_tmp  
+FILTERED_MYPY:=$(MYPY) | perl -ne 'print if !/(Too many arguments|Signature of "__getitem__"|Only concrete class|Unexpected keyword argument|mypy\/typeshed\/stdlib\/3\/builtins.pyi:39: note: "\w+" defined here|Module( '\''\w+'\'')? has no attribute|has no attribute "validator"|has no attribute "default"|SelfType" has no attribute)/' | tee ./.mypy_tmp && test ! -s ./.mypy_tmp
 
-# this is the standard ignore list plus ignores for hanging indents, pending figuring out how to auto-format them
-FLAKE8:=flake8
-FLAKE8_CMD:=$(FLAKE8) $(SOURCE_DIR_NAME)
-
-test: 
-	pytest tests
+test:
+	python -m pytest tests
 
 coverage:
-	pytest --cov={{cookiecutter.project_slug}} tests
+	python -m pytest --cov={{cookiecutter.project_slug}} tests
 
 lint:
-	$(PYLINT)
+	pylint $(SOURCE_DIR_NAME) tests benchmarks
 
 mypy:
 	$(FILTERED_MYPY)
 
 flake8:
-	$(FLAKE8_CMD)
+	flake8 $(SOURCE_DIR_NAME) tests benchmarks
 
 black-fix:
+	isort -rc .
 	black $(SOURCE_DIR_NAME) tests benchmarks
 
 black-check:
@@ -53,9 +44,9 @@ black-check:
 doc-lint:
 	sphinx-build -nWT -b dummy docs docs/_build/html
 
-check: black-check doc-lint lint mypy flake8
-
-benchmark:
-	pytest benchmarks --benchmark-timer=time.process_time
+check: black-check doc-lint flake8 mypy lint
 
 precommit: black-fix check
+
+benchmark:
+	python -m pytest benchmarks --benchmark-timer=time.process_time --benchmark-autosave --benchmark-save-data

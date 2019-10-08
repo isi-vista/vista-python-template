@@ -50,11 +50,10 @@ confidence=
 # --enable=similarities". If you want to run only the classes checker, but have
 # no Warning level messages displayed, use"--disable=all --enable=classes
 # --disable=W"
-
-# we disable bad-continuation because we trust black's decisions here
-# we disable wrong-import-order because it is unreliable and we will soon switch to isort
 # TODO: Enable missing-docstring once it's not overwhelming
-disable=R,fixme,missing-docstring,no-member,unsupported-membership-test,unsubscriptable-object,unsupported-assignment-operation,not-an-iterable,too-many-lines,ungrouped-imports,import-error,bad-continuation,wrong-import-order,logging-fstring-interpolation
+# * bad-whitespace and bad-continuation are disabled because we trust black to handle it
+# * wrong-import-order is disabled because we trust isort to handle it
+disable=R,fixme,missing-docstring,no-member,unsupported-membership-test,unsubscriptable-object,unsupported-assignment-operation,not-an-iterable,too-many-lines,ungrouped-imports,import-error,bad-continuation,bad-whitespace,wrong-import-order
 
 # Enable the message, report, category or checker with the given id(s). You can
 # either give multiple identifier separated by comma (,) or put this option
@@ -140,7 +139,8 @@ function-name-hint=(([a-z][a-z0-9_]{1,100})|(_[a-z0-9_]*))$
 function-rgx=(([a-z][a-z0-9_]{1,100})|(_[a-z0-9_]*))$
 
 # Good variable names which should always be accepted, separated by a comma
-good-names=i,j,k,ex,Run,_,_log
+# T, K, V, etc. are frequently used as generic type variables
+good-names=i,j,k,ex,Run,_,_log, T, _T, K, _K, V, _V
 
 # Include a hint for the correct naming format with invalid-name
 include-naming-hint=no
