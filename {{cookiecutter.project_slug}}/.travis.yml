@@ -15,7 +15,7 @@ jobs:
           script:
               - echo "python version $(python --version) running"
               - echo "pip version $(pip --version) running"
-              - make checalabasterk test
+              - make check coverage
 
 after_success:
   - codecov -t CODE_COV_TOKEN_HERE
