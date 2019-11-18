@@ -19,4 +19,9 @@ ignore =
     E402
     # already covered by PyLint and gives false positives for typing.overload
     F811
-max-line-length = 100
+    # trailing whitespace - black handles it in code; in comments we don't care.
+    W291
+# Let black handle the line lengths
+max-line-length = 300
+# but black won't touch comments, so flake8 can still handle those
+max-doc-length = 100
