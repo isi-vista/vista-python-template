@@ -7,6 +7,7 @@ immutablecollections==0.9.0
 # extras for development
 black==19.3b0
 pytest==5.2.0
+pytest-custom_exit_code
 coverage==4.5.4
 pytest-cov==2.8.0
 pytest-benchmark==3.2.2

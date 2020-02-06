@@ -3,6 +3,8 @@ default:
 
 SOURCE_DIR_NAME={{cookiecutter.project_slug}}
 
+PYTEST:=pytest --supress-no-test-exit-code
+
 MYPY:=mypy $(MYPY_ARGS) $(SOURCE_DIR_NAME) tests benchmarks
 
 # Suppressed warnings:
@@ -20,10 +22,10 @@ MYPY:=mypy $(MYPY_ARGS) $(SOURCE_DIR_NAME) tests benchmarks
 FILTERED_MYPY:=$(MYPY) | perl -ne 'print if !/(Too many arguments|Signature of "__getitem__"|Only concrete class|Unexpected keyword argument|mypy\/typeshed\/stdlib\/3\/builtins.pyi:39: note: "\w+" defined here|Module( '\''\w+'\'')? has no attribute|has no attribute "validator"|has no attribute "default"|SelfType" has no attribute)/' | tee ./.mypy_tmp && test ! -s ./.mypy_tmp
 
 test:
-	python -m pytest tests
+	python -m $(PYTEST) tests
 
 coverage:
-	python -m pytest --cov={{cookiecutter.project_slug}} tests
+	python -m $(PYTEST) --cov={{cookiecutter.project_slug}} tests
 
 lint:
 	pylint $(SOURCE_DIR_NAME) tests benchmarks
@@ -49,4 +51,4 @@ check: black-check doc-lint flake8 mypy lint
 precommit: black-fix check
 
 benchmark:
-	python -m pytest benchmarks --benchmark-timer=time.process_time --benchmark-autosave --benchmark-save-data
+	python -m $(PYTEST) benchmarks --benchmark-timer=time.process_time --benchmark-autosave --benchmark-save-data
