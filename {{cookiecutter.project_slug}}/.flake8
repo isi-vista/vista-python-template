@@ -19,4 +19,4 @@ ignore =
     E402
     # already covered by PyLint and gives false positives for typing.overload
     F811
-max-line-length = 100
+max-line-length = 300
