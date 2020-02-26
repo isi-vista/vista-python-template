@@ -3,7 +3,7 @@ default:
 
 SOURCE_DIR_NAME={{cookiecutter.project_slug}}
 
-PYTEST:=pytest --supress-no-test-exit-code
+PYTEST:=pytest --suppress-no-test-exit-code
 
 MYPY:=mypy $(MYPY_ARGS) $(SOURCE_DIR_NAME) tests benchmarks
 
