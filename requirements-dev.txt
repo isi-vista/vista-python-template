@@ -1,4 +1,4 @@
-cookiecutter==1.6.0
+cookiecutter==2.1.1
 flake8==3.7.8
 pytest==4.6.5
 pytest-cookies==0.4.0
